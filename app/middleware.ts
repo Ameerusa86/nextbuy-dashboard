@@ -6,7 +6,10 @@ export function middleware() {
 
   // add the CORS headers to the response
   res.headers.append("Access-Control-Allow-Credentials", "true");
-  res.headers.append("Access-Control-Allow-Origin", "localhost:3000");
+  res.headers.append(
+    "Access-Control-Allow-Origin",
+    "https://nextbuy-dashboard.vercel.app"
+  );
   res.headers.append(
     "Access-Control-Allow-Methods",
     "GET,DELETE,PATCH,POST,PUT"
