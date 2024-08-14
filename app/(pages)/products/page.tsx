@@ -36,7 +36,9 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/products");
+        const response = await fetch(
+          "https://nextbuy-dashboard.vercel.app/api/products"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
