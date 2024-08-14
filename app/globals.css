@@ -2,32 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 210 20% 98%; /* Soft light gray */
+    --foreground: 222 15% 20%; /* Darker muted charcoal */
+    --card: 0 0% 100%; /* Pure white for clarity */
+    --card-foreground: 222 15% 20%; /* Same as foreground for consistency */
+    --popover: 0 0% 100%; /* Same as card for uniformity */
+    --popover-foreground: 222 15% 20%; /* Consistent with card-foreground */
+    --primary: 210 50% 36%; /* Calming blue */
+    --primary-foreground: 0 0% 100%; /* Pure white for high contrast */
+    --secondary: 210 33% 90%; /* Light blue-gray for subtle highlights */
+    --secondary-foreground: 222 15% 20%; /* Same as foreground for cohesion */
+    --muted: 210 20% 93%; /* Very light muted gray-blue */
+    --muted-foreground: 215 15% 35%; /* Soft gray for muted text */
+    --accent: 210 50% 36%; /* Repeating the primary for a strong accent */
+    --accent-foreground: 0 0% 100%; /* High contrast white */
+    --destructive: 0 80% 60%; /* Strong red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White for clarity */
+    --border: 214 20% 80%; /* Light gray-blue for borders */
+    --input: 214 20% 80%; /* Same as border for input fields */
+    --ring: 222 15% 20%; /* Darker muted charcoal */
+    --radius: 0.5rem;
+    --chart-1: 210 100% 50%; /* Bright blue */
+    --chart-2: 160 70% 40%; /* Teal */
+    --chart-3: 45 100% 50%; /* Vibrant yellow */
+    --chart-4: 340 65% 47%; /* Soft pink */
+    --chart-5: 25 85% 58%; /* Warm orange */
+  }
+
+  .dark {
+    --background: 222 15% 20%; /* Dark charcoal */
+    --foreground: 210 15% 95%; /* Off-white */
+    --card: 222 15% 20%; /* Darker background for cards */
+    --card-foreground: 210 15% 95%; /* Off-white */
+    --popover: 222 15% 20%; /* Same as card */
+    --popover-foreground: 210 15% 95%; /* Same as foreground */
+    --primary: 210 50% 75%; /* Lighter version of primary for contrast */
+    --primary-foreground: 222 15% 20%; /* Darker for contrast */
+    --secondary: 217 20% 30%; /* Dark muted blue-gray */
+    --secondary-foreground: 210 15% 95%; /* Off-white */
+    --muted: 217 20% 30%; /* Same as secondary for cohesion */
+    --muted-foreground: 215 15% 60%; /* Softer gray */
+    --accent: 217 20% 30%; /* Matching secondary */
+    --accent-foreground: 210 15% 95%; /* Off-white */
+    --destructive: 0 70% 40%; /* Muted red */
+    --destructive-foreground: 210 15% 95%; /* Off-white */
+    --border: 217 20% 30%; /* Dark muted blue-gray */
+    --input: 217 20% 30%; /* Same as border */
+    --ring: 212 20% 50%; /* Darker blue-gray for focus rings */
+    --chart-1: 220 85% 60%; /* Softened bright blue */
+    --chart-2: 160 60% 45%; /* Muted teal */
+    --chart-3: 30 85% 50%; /* Softer yellow */
+    --chart-4: 280 70% 50%; /* Muted pink */
+    --chart-5: 340 75% 50%; /* Softened orange */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

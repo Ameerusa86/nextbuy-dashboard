@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { K2D } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/custom/Headers/Navbar";
+import Sidebar from "@/components/custom/Headers/Sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
+const k2d = K2D({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={k2d.className}>
+        <Navbar />
+        <div className="sm:flex sm:justify-center mx-auto">
+          <div className="hidden md:block ml-60">
+            <Sidebar />
+          </div>
+          <div className="p-5 w-full md:max-w-[1920px]">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
